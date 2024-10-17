@@ -19,8 +19,6 @@ def init():
 meals = []
 
 def get_meals(p):
-    # Use a breakpoint in the code line below to debug your script.
-    print(pages[p].status_code)
     meals.append(halls[p])
 
     try:
@@ -30,7 +28,6 @@ def get_meals(p):
             meal = x.find_next(class_="get-nutritioncalculator")
             if meal.text != "Have A Nice Day":
                 meals.append(meal.text)
-                # print(meal.text)
 
     except:
         meals.append("No known meals for this dining hall.")
@@ -59,7 +56,7 @@ def format_html(meals):
     html = html + "</p><br><small>Last updated " + str(datetime.datetime.now()) + "</small></body></html>"
 
     # Edit File
-    f = open("C:/Users/15713/Desktop/Personal/Server/gmumenu.html", "w")
+    f = open("SECRET_PATH/gmumenu.html", "w")
     f.write(html)
     f.close()
 
@@ -86,7 +83,7 @@ def format_js(meals):
     js = js + '], lu: "' + str(datetime.datetime.now()) + '"};'
 
     # File Handling
-    f = open("C:/Users/15713/Desktop/Personal/Server/gmumenu.js", "w")
+    f = open("SECRET_PATH/gmumenu.js", "w")
     f.write(js)
     f.close()
 
